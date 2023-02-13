@@ -18,7 +18,7 @@ import NotFoundPage from 'pages/NotFound/NotFoundPage';
 
 export const App = () => {
   return (
-    <BrowserRouter basename="/goit-react-hw-05-movie">
+    <BrowserRouter basename="/goit-react-hw-05-movies">
       <GlobalStyle/>
       <NavMenu />
       <Routes>
