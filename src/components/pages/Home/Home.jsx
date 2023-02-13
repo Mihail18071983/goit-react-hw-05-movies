@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { fetchTrending } from 'shared/services/fetch-api';
+import { fetchTrending } from 'components/shared/services/fetch-api';
 
-import TrendingList from 'modules/TrendingList/TrendingList';
+import TrendingList from 'components/TrendingList/TrendingList';
 
 const Home = () => {
   const [items, setItems] = useState([]);
