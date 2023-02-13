@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom"
-import { useState, useEffect } from "react";
+// import { useParams } from "react-router-dom"
+// import { useState, useEffect } from "react";
 
-import { fetchMovieById } from "components/shared/services/fetch-api";
+// import { fetchMovieById } from "components/shared/services/fetch-api";
 
 const MovieDetails = () => {
     // const [details, setDetails] = useState();
