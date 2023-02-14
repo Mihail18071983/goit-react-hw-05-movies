@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { fetchTrending } from 'components/shared/services/fetch-api';
 
 import TrendingList from 'components/TrendingList/TrendingList';
@@ -14,7 +14,10 @@ const Home = () => {
     const getTrending = async () => {
       try {
         const { results } = await fetchTrending(page);
-        setItems(prevItems =>  (prevItems.length === 0) ?  [results] : [...prevItems, ...results] )
+        // setItems(prevItems =>
+        //   prevItems.length === 0 ? [results] : [...prevItems, ...results]
+        // );
+        setItems(prevItems => [...prevItems, ...results]);
       } catch (err) {
         console.log(err.message);
       }
@@ -29,7 +32,7 @@ const Home = () => {
   return (
     <>
       <h1>Trending today</h1>
-      <TrendingList results={items}  />
+      <TrendingList results={items} />
       <LoadMoreBtn onLoadMore={loadMore} text={'Load more'} />
     </>
   );
