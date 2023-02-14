@@ -8,10 +8,10 @@ const instance = axios.create({
   },
 });
 
-export const fetchTrending = async () => {
+export const fetchTrending = async (page=1) => {
   const mediaType = 'movie';
   const timeWindow = 'week';
-  const { data } = await instance.get(`/trending/${mediaType}/${timeWindow}`);
+  const { data } = await instance.get(`/trending/${mediaType}/${timeWindow}?page=${page}`);
   return data;
 };
 
