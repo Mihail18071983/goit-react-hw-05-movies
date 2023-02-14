@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect} from 'react';
 import { fetchTrending } from 'components/shared/services/fetch-api';
 
 import TrendingList from 'components/TrendingList/TrendingList';
@@ -22,9 +22,9 @@ const Home = () => {
     getTrending();
   }, [page]);
 
-  const loadMore = useCallback(() => {
+  const loadMore = () => {
     setPage(prevPage => prevPage + 1);
-  }, []);
+  };
 
   return (
     <>
