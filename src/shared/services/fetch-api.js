@@ -8,10 +8,12 @@ const instance = axios.create({
   },
 });
 
-export const fetchTrending = async (page=1) => {
+export const fetchTrending = async (page) => {
   const mediaType = 'movie';
   const timeWindow = 'week';
-  const { data } = await instance.get(`/trending/${mediaType}/${timeWindow}?page=${page}`);
+  const { data } = await instance.get(
+    `/trending/${mediaType}/${timeWindow}?page=${page}`
+  );
   return data;
 };
 
@@ -32,23 +34,17 @@ export const fetchGenres = async () => {
   return data.genres;
 };
 
-export const fetchMovieById = async (movieID = 322) => {
+export const fetchMovieById = async (movieID) => {
   const { data } = await instance.get(`/movie/${movieID}`);
-  console.log('movieDetails', data);
   return data;
 };
 
-export const fetchCredits = async (movieId = 322) => {
+export const fetchCredits = async (movieId) => {
   const { data } = await instance.get(`/movie/${movieId}/credits`);
-  console.log('credits', data);
   return data;
 };
 
-export const fetchReviews = async (movieID = 322) => {
+export const fetchReviews = async (movieID) => {
   const { data } = await instance.get(`/movie/${movieID}/reviews`);
-  console.log('reviews', data.results);
-  return data.results;
+  return data;
 };
-
-
-

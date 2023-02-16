@@ -1,24 +1,30 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import GlobalStyle from 'globalStyles';
+import Home from 'pages/Home/Home';
+import Movies from 'pages/Movies/Movies';
+import MovieDetails from 'pages/MovieDetails/MovieDetails';
+import NotFoundPage from 'pages/NotFound/NotFoundPage';
+import MovieCast from 'components/Cast/Cast';
+import MovieRewiewers from 'components/MovieReviewers/MovieRewiewers';
 
-import NavMenu from 'components/NavMenu/NavMenu';
-import Home from 'components/pages/Home/Home';
-import Movies from 'components/pages/Movies/Movies';
-import MovieDetails from 'components/pages/MovieDetails/MovieDetails';
-import NotFoundPage from 'components/pages/NotFound/NotFoundPage';
+import SharedLayout from 'shared/SharedLayout/SharedLayout';
 
 export const App = () => {
   return (
-  <BrowserRouter basename="/goit-react-hw-05-movies">
-      <GlobalStyle/>
-      <NavMenu />
+    <>
+      <GlobalStyle />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movie/:id" element={<MovieDetails />} />
-        <Route path="/Movies" element={<Movies />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieRewiewers />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
       </Routes>
-    </BrowserRouter>
+    </>
   );
 };

@@ -6,8 +6,8 @@ import { NavStyled } from '../NavMenu/NavMenu.styled';
 const NavMenu = () => {
   return (
     <NavStyled>
-      <StyledLink to="/">Home</StyledLink>
-      <StyledLink to="/Movies">Movies</StyledLink>     
+      <StyledLink to="/" end>Home</StyledLink>
+      <StyledLink to="/movies">Movies</StyledLink>     
     </NavStyled>
   );
 };
