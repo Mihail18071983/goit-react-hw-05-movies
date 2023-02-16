@@ -13,17 +13,14 @@ const Home = () => {
   // const [page, setPage] = useState(1);
   // const [totalPages, setTotalPages] = useState(0);
 
-  const page = Number(params.get('page'))? Number(params.get('page')):1;
-  console.log('params', params)
-  console.log('currentPage', page)
+  const page = Number(params.get('page')) ? Number(params.get('page')) : 1;
+  console.log('params', params);
+  console.log('currentPage', page);
 
   useEffect(() => {
-    
     const getTrending = async page => {
       try {
-        const { results } = await fetchTrending(
-          page
-        );
+        const { results } = await fetchTrending(page);
 
         // if (total_pages > 1) {
         //   setTotalPages(total_pages);
@@ -45,7 +42,7 @@ const Home = () => {
 
   const loadMore = () => {
     // setPage(prevPage => prevPage + 1);
-    setParams({page:Number(page)+1 });
+    setParams({ page: Number(page) + 1 });
   };
 
   return (
