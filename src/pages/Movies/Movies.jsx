@@ -34,7 +34,7 @@ const Movies = () => {
       const getMovie = async page => {
         const { results, total_pages } = await fetchMovies(page, query);
         if (!results.length) {
-           Notify.failure('No found');
+          Notify.failure('No found');
         } else {
           setTotalPages(total_pages);
           setMovie(results);
@@ -70,7 +70,7 @@ const Movies = () => {
       <Searchbar onSubmit={onSearchMovie} />
       <MovieList results={movie} />
       {error && <p>Error{error.message}</p>}
-      {totalPages > 1 &&  (
+      {totalPages > 1 && (
         <PaginationStyled
           breakLabel="..."
           nextLabel=">"
