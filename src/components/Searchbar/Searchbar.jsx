@@ -1,4 +1,4 @@
-import { useState, memo, useCallback } from 'react';
+import { useState, memo } from 'react';
 import PropTypes from 'prop-types';
 import { ImSearch } from 'react-icons/im';
 import { toast } from 'react-toastify';
