@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 import { fetchMovieById } from 'shared/services/fetch-api';
+import NotFoundPage from 'pages/NotFound/NotFoundPage';
 
 const MovieDetails = () => {
-  const [movie, setMovie] = useState({});
+  const [movieInfo, setMovieInfo] = useState(null);
+  const [error, setError] = useState(false);
   const { movieId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,10 +18,10 @@ const MovieDetails = () => {
     const fetchMovieDetails = async id => {
       try {
         const result = await fetchMovieById(id);
-        console.log(result)
-        setMovie(result);
+        setMovieInfo(result);
       } catch ({ response }) {
         console.log(response.data.message);
+        setError(true);
       }
     };
     fetchMovieDetails(movieId);
@@ -28,34 +30,50 @@ const MovieDetails = () => {
   const goBack = () => navigate(from);
 
   return (
-    <section>
+    <main>
       <button onClick={goBack}>Go Back</button>
-      <img
-        src={
-          movie.poster_path
-            ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
-            : 'https://via.placeholder.com/200'
-        }
-        alt={movie.tagline}
-      />
+      {error && <NotFoundPage />}
+      {movieInfo && (
+        <>
+          <img
+            src={
+              movieInfo.poster_path
+                ? `https://image.tmdb.org/t/p/w200/${movieInfo.poster_path}`
+                : 'https://via.placeholder.com/200'
+            }
+            alt={movieInfo.tagline}
+          />
+          <div>
+            <h1>
+              <span>{movieInfo.title}</span>
+              <span>{`(${movieInfo.release_date.slice(0, 4)})`}</span>
+            </h1>
+            <p>
+              <span>Overview</span>
+              {movieInfo.overview}
+            </p>
+            <p>
+              <span>Genre:</span>
+              <span>
+                {movieInfo.genres &&
+                  movieInfo.genres.map(genre => genre.name).join(', ')}
+              </span>
+            </p>
+          </div>
+        </>
+      )}
+
       <div>
-        <h2>
-          <span>{movie.title}</span>
-          <span>{movie.release_date}</span>
-        </h2>
-        {/* <p>
-          <span>Genre:</span>
-          <span>{movie.genres.map(genre => genre.name).join(',')}</span>
-        </p> */}
-        {/* <p>
-          <span>Overview:</span>
-          <span>{movie.overview}</span>
-        </p> */}
+        <Link to="cast" state={{ from}}>
+          Cast
+        </Link>
+        <Link to="reviews" state={{ from }}>
+          Reviews
+        </Link>
       </div>
-      <Link to="cast">Cast</Link>
-      <Link to="reviews">Reviews</Link>
+
       <Outlet />
-    </section>
+    </main>
   );
 };
 

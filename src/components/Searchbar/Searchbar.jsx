@@ -10,12 +10,12 @@ import initialState from './initialState';
 const Searchbar = ({ onSubmit }) => {
   const [state, setState] = useState({ ...initialState });
 
-  const handleChange = useCallback(e => {
-    const { name, value } = e.target;
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
     setState(prevState => {
-      return { ...prevState, [name]: value };
+      return { ...prevState, [name]: value.trim() };
     });
-  }, []);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -27,7 +27,7 @@ const Searchbar = ({ onSubmit }) => {
     setState({ ...initialState });
   };
 
-  const { search } = state;
+  const { query } = state;
 
   return (
     <SearchBar.Header>
@@ -40,7 +40,7 @@ const Searchbar = ({ onSubmit }) => {
 
         <SearchBar.Input
           name="search"
-          value={search}
+          value={query}
           type="text"
           autoComplete="off"
           autoFocus

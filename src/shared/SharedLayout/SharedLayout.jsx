@@ -2,15 +2,18 @@ import { Outlet } from 'react-router-dom';
 
 import NavMenu from 'components/NavMenu/NavMenu';
 
-import Container from './SharedLayot.styled';
+import { Container, Header } from './SharedLayot.styled';
+
 
 const SharedLayout = () => {
   return (
     <Container>
-      <NavMenu />
+      <Header>
+        <NavMenu />
+      </Header>
       <Outlet />
     </Container>
   );
 };
 
-export default SharedLayout
+export default SharedLayout;

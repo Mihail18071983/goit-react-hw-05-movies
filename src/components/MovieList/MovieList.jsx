@@ -1,9 +1,9 @@
 // import PropTypes from 'prop-types';
-import { StyledList } from './TrendingList.styled';
+import { StyledList } from './MovieList.styled';
 import {NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-const TrendingList = ({ results }) => {
+const MovieList = ({ results }) => {
   const location = useLocation();
   const elements = results.map(({ id, title }) => (
     <li key={id}>
@@ -15,9 +15,9 @@ const TrendingList = ({ results }) => {
   return <StyledList>{elements}</StyledList>;
 };
 
-export default TrendingList;
+export default MovieList;
 
-TrendingList.defaultProps = {
+MovieList.defaultProps = {
   results: [],
 };
 

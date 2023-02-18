@@ -17,15 +17,9 @@ export const fetchTrending = async (page) => {
   return data;
 };
 
-export const fechMovie = async (page = 1, query = 'titanic') => {
-  const { data } = await instance.get(`/search/movie/`, {
-    params: {
-      page,
-      query,
-    },
-  });
-  console.log('movie', data.results);
-  return data.results;
+export const fetchMovies = async (page , query) => {
+  const { data } = await instance.get(`/search/movie?page=${page}&query=${query}`);
+  return data;
 };
 
 export const fetchGenres = async () => {
