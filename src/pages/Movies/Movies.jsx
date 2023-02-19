@@ -35,6 +35,7 @@ const Movies = () => {
         const { results, total_pages } = await fetchMovies(page, query);
         if (!results.length) {
           Notify.failure('No found');
+          setTotalPages(0)
         } else {
           setTotalPages(total_pages);
           setMovie(results);

@@ -28,6 +28,10 @@ img {
   display: block;
   height: auto;
 }
+
+button {
+  cursor: pointer;
+}
 `;
 
 export default GlobalStyle;

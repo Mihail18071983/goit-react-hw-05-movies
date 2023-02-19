@@ -10,5 +10,4 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   min-height: 60px;
-  border-bottom:1px solid gray;
-`;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;`

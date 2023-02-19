@@ -10,6 +10,7 @@ export const StyledLink = styled(NavLink)`
    &.active {
     color: white;
     background-color: orangered;
+    border-radius:5px;
   }
 `;
 

@@ -30,12 +30,10 @@ const Searchbar = ({ onSubmit }) => {
   const { query } = state;
 
   return (
-    <SearchBar.Header>
+    <SearchBar.Container>
       <SearchBar.Form onSubmit={handleSubmit}>
         <SearchBar.SearchButton type="submit" aria-label="search-button">
-          <SearchBar.Label>
             <ImSearch />
-          </SearchBar.Label>
         </SearchBar.SearchButton>
 
         <SearchBar.Input
@@ -49,7 +47,7 @@ const Searchbar = ({ onSubmit }) => {
           onChange={handleChange}
         />
       </SearchBar.Form>
-    </SearchBar.Header>
+    </SearchBar.Container>
   );
 };
 
