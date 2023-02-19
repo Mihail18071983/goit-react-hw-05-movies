@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Main = styled.main`
   padding: 10px 16px;
+  background-color:#dedbcb; 
 `;
 
 export const MovieWrapper = styled.div`

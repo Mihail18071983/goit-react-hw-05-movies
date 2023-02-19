@@ -67,7 +67,7 @@ const Movies = () => {
   };
 
   return (
-    <main>
+    <main style={{paddingBottom:20,}}>
       <Searchbar onSubmit={onSearchMovie} />
       <MovieList results={movie} />
       {error && <p>Error{error.message}</p>}

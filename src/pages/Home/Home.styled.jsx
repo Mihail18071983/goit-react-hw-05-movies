@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
 export const Main =styled.main`
-    padding:0 16px;
+    background-color:#dedbcb;
+    padding-bottom: 20px;
+    padding-top: 20px;
 `
